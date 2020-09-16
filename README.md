@@ -19,14 +19,12 @@ docker build -t rabbitmq_go .
 
 ## Run producer 
 
-Note: all parameters are mandatory for now, even the routing key
-
 ```bash
 # local
-go run producer.go "hello worlllld" exchange routing_key
+go run producer.go -exchange myexchange -routingkey myroutingkey -body 'message body'
 
 # docker
-docker run --rm -it --network host rabbitmq_go ./producer message exchange routingkey
+docker run --rm -it --network host rabbitmq_go ./producer -exchange myexchange -routingkey myroutingkey -body 'message body'
 ```
 
 ## Run consumer
